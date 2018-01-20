@@ -79,26 +79,26 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
-// var removeDuplicates = (arr) => {
-//   for(var i = 0; i < arr.length; i++) {
-//     for (var j = arr.length - 1; j > 0; j--) {
-//       if (arr[j] === arr[i] && i != j) {
-//         arr.splice(arr[j], 1);
-//         }
-//       }
-//     }
-//     return arr;
-//   }
-
 var removeDuplicates = (arr) => {
-  var duplicates = [];
   for(var i = 0; i < arr.length; i++) {
-    if (duplicates.indexOf(arr[i]) === -1) {
-      duplicates.push(arr[i]);
+    for (var j = arr.length - 1; j > 0; j--) {
+      if (arr[j] === arr[i] && i != j) {
+        arr.splice(j, 1);
+        }
+      }
     }
+    return arr;
   }
-  return duplicates;
-}
+
+// var removeDuplicates = (arr) => {
+//   var duplicates = [];
+//   for(var i = 0; i < arr.length; i++) {
+//     if (duplicates.indexOf(arr[i]) === -1) {
+//       duplicates.push(arr[i]);
+//     }
+//   }
+//   return duplicates;
+// }
 
 
 ////////// PROBLEM 3 //////////
@@ -168,6 +168,11 @@ var myCar = {
 */
 
 //Code Here
+var recordCleaner = () => {
+  for(var i = 0; i < myCar.accidents.length; i++) {
+    myCar.accidents[i].atFaultForAccident = false;
+  }
+}
 
 
 
@@ -187,5 +192,16 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
-
+var looper = () => {
+  for (var i = 0; i < numsArr.length; i++) {
+    for (var j = 0; j < numsArr[i].length; j++) {
+      if (numsArr[i][j] % 2 === 0) {
+        numsArr[i][j] = "even";
+      } else {
+        numsArr[i][j] = "odd"
+      }
+    }
+  }
+  return numsArr;
+}
 
