@@ -102,10 +102,7 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 
 //Code Here
 let myStrongest = monstersInYourPocket.filter(function(element, index, arr) {
-  if (arr[index].CP < 200) {
-    arr.splice(arr[index], 1);
-    return arr;
-  }
+  return arr[index].CP > 200
 });
 
 
@@ -124,7 +121,7 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 */
 
 let ordersTotal = orders.map(function(element, index, arr) {
-  arr[index][0] += arr[index][1];
+   arr[index][0] += arr[index][1];
 });
 
 
@@ -148,7 +145,9 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 let bobsTotal = purchases.reduce(function(count, element, index, arr) {
   if (arr[index]["owner"] === "Bob") {
     return count + arr[index]["price"];
+  } else {
+    return count;
   }
-});
+},0);
 
 
